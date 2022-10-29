@@ -1,0 +1,34 @@
+li {
+    list-style-type: square;
+    background-color: rgb(1, 1, 1);
+    display: flex;
+
+}
+
+#menu li{
+    display:inline;
+    margin:20px;
+    padding:20px; /*padding ou margin*/
+
+}
+
+#menu li a{
+    text-decoration: none; /*sem icone na lista*/
+    color:rgb(255, 255, 255);
+    font-family: Helvetica;
+    font-size: 15px;
+
+}
+
+#menu li a:hover{
+    color:rgb(108, 105, 108);
+    font-family: Helvetica; /*família da fonte*/
+    font-size: 15px; /*tamanho da fonte*/
+    font-weight: bold; /*tipo da fonte*/
+}
+form {
+
+    margin: 60px;
+    text-align: center;
+
+}
