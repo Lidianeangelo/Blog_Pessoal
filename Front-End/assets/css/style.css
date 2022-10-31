@@ -1,3 +1,4 @@
+/*------HOME-----*/
 li {
     list-style-type: square;
     background-color: rgb(1, 1, 1);
@@ -6,9 +7,10 @@ li {
 }
 
 #menu li{
-    display:inline;
-    margin:20px;
-    padding:20px; /*padding ou margin*/
+    display:flex;
+    margin:4px;
+    padding:8px; /*padding,margin ou gap*/
+    flex-direction: column;
 
 }
 
@@ -26,9 +28,61 @@ li {
     font-size: 15px; /*tamanho da fonte*/
     font-weight: bold; /*tipo da fonte*/
 }
+
+.flex-container{
+    display:flex;
+    flex-direction: column-reverse;
+    width:200px;
+    
+}
+
+.home-container{
+    display:flex;
+    position: static;
+    flex-flow: row;
+    
+    
+    
+    
+    
+}
+
+h1{
+    font-size:80px;
+    font-family:Geneva, Verdana, sans-serif;
+    position: relative;
+    left: 180px;
+    margin: 90px;
+    word-break: break-word;
+    
+    
+    
+        
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    padding:4px;
+    right: 80px;
+
+    
+  }
+
+
+
+/*------CONTATO-----*/
 form {
 
-    margin: 60px;
-    text-align: center;
+    margin: 80px;
+    text-align: left;
 
 }
+
+.img-contato{
+    margin-right: 140px;
+    margin-bottom: 60px;
+}
+
+/*------PERFIS-----*/
