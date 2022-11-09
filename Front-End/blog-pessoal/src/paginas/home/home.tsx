@@ -3,7 +3,7 @@ import { Box, Button, Grid, Typography } from '@mui/material';
 
 import "./home.css";
 
-function home() {
+function Home() {
     return (
         <>
             <Grid container justifyContent="center" className="container">
@@ -13,7 +13,7 @@ function home() {
                 <Grid item xs={6}>
 
                     <Box paddingX={15}>
-                        <Typography variant="h3" gutterBottom component="h3" align="center" className="escritos"> Confira aqui:</Typography>
+                        <Typography variant="h3" gutterBottom component="h3" align="center" className="titulo"> Confira aqui:</Typography>
                         
                     </Box>
                     <Box display="flex" justifyContent="center">
@@ -29,4 +29,4 @@ function home() {
     )
 }
 
-export default home;
+export default Home;
