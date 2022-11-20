@@ -13,3 +13,5 @@ interface Postagem {
 }
 
 export default Postagem;
+
+function ListaPostagem(){};
