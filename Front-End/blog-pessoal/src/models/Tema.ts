@@ -4,3 +4,5 @@ interface Tema {
 }
 
 export default Tema;
+
+function ListaTema(){};
