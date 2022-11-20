@@ -7,7 +7,7 @@ import UsuarioLogin from "../../models/UsuarioLogin";
 import { login } from "../../service/Service";
 import { addToken } from "../../store/tokens/actions";
 import "./Login.css";
-
+const userLocalStorage;
 function Login() {
 
     let history = useNavigate();
@@ -23,6 +23,7 @@ function Login() {
             usuario: '',
             foto: '',
             senha: '',
+            tipo:'',
             token: ''
         }
     )
@@ -80,3 +81,4 @@ function Login() {
 }
 
 export default Login;
+
