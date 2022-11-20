@@ -1,3 +1,4 @@
+
 interface UsuarioLogin {
     id: number
     nome: string
@@ -9,3 +10,5 @@ interface UsuarioLogin {
 }
 
 export default UsuarioLogin;
+
+interface UserLogin{};
