@@ -1,90 +1,91 @@
-import React from 'react';
-import { styled, alpha } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
+import { AppBar, Grid, Toolbar, Typography } from "@material-ui/core";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { Box } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { addToken } from "../../../store/tokens/actions";
+import { TokenState } from "../../../store/tokens/tokensReducer";
+import "./navbar.css";
 
-import './navbar.css';
+function Navbar() {
 
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(1),
-    width: 'auto',
-  },
-}));
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
+  let navigate = useNavigate();
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '12ch',
-      '&:focus': {
-        width: '20ch',
-      },
-    },
-  },
-}));
+  const dispatch = useDispatch();
 
-export default function NavBar() {
-  return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >Menu
-          </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
+  function goLogout() {
+    dispatch(addToken(''));
+    alert("Usuário deslogado");
+    navigate("/login");
+  }
+
+  var navbarComponent;
+
+  if (token != '') {
+    navbarComponent = <AppBar position="static">
+      <Toolbar variant="dense" style={{ backgroundColor: "#000000", height: "60px" }}>
+        <Box style={{ cursor: 'pointer' }}>
+          <Typography variant="h5" color="inherit"> BPN </Typography>
+        </Box>
+
+        <Grid alignItems="center" item xs={9} className="menu">
+          <Box display="flex" justifyContent="center">
+            <Link to="/home" className="text-decorator-none">
+              <Box mx={1} style={{ cursor: 'pointer' }}>
+                <Typography> Home </Typography>
+              </Box>
+            </Link>
+            <Link to="/posts" className="text-decorator-none">
+              <Box mx={1} style={{ cursor: 'pointer' }}>
+                <Typography> Postagens </Typography>
+              </Box>
+            </Link>
+            <Link to="/temas" className="text-decorator-none">
+              <Box mx={1} style={{ cursor: 'pointer' }}>
+                <Typography> Temas </Typography>
+              </Box>
+            </Link>
+            <Link to="/formularioTema" className="text-decorator-none">
+              <Box mx={1} style={{ cursor: 'pointer' }}>
+                <Typography> Cadastrar Tema </Typography>
+              </Box>
+            </Link>
+          </Box>
+        </Grid>
+
+        <Link to="/login" className="text-decorator-none">
+          <Box mx={1} style={{ cursor: 'pointer' }}>
+            <Typography style={{ position: "absolute", right: 80, top: 18 }}> Fazer Login </Typography>
+          </Box>
+        </Link>
+
+        <Box onClick={goLogout}>
+          <a href="">
+            <LogoutIcon
+              style={{
+                color: "#fff",
+                position: "absolute",
+                right: "20",
+                width: "30",
+                height: "30",
+                top: "15",
+              }}
             />
-          </Search>
-        </Toolbar>
-      </AppBar>
-    </Box>
+          </a>
+        </Box>
+      </Toolbar>
+    </AppBar>
+  }
+
+  return (
+    <>
+      {navbarComponent}
+    </>
   );
 }
+
+export default Navbar;

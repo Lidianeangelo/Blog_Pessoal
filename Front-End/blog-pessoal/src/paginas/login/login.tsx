@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import UsuarioLogin from "../../models/UsuarioLogin";
 import { login } from "../../service/Service";
 import { addToken } from "../../store/tokens/actions";
-import "./Login.css";
+import "./login.css";
 
 function Login() {
 
@@ -23,6 +23,7 @@ function Login() {
             usuario: '',
             foto: '',
             senha: '',
+            tipo:'',
             token: ''
         }
     )
@@ -80,3 +81,5 @@ function Login() {
 }
 
 export default Login;
+
+interface useLocalStorage{};

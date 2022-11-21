@@ -1,0 +1,27 @@
+.container {
+    direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: white!important;
+}
+
+.titulo {
+    font-weight: bold !important;
+}
+
+.botao {
+    border-color: black !important;
+    color: black !important;
+    background-color: white !important;
+    /* font-weight: bold !important; */
+}
+
+.postagem {
+    background-color: white;
+}
+
+/*.img {
+    width: 95vh; 
+    height: 95vh;
+    align-items: center;
+}*/
