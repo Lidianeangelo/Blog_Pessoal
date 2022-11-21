@@ -1,11 +1,12 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import { FacebookRounded } from '@mui/icons-material';
+import { Instagram, LinkedIn } from '@material-ui/icons';
+import GitHub from '@mui/icons-material/GitHub'
 import { Box } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
-import './Footer.css';
+import './footer.css';
 
 function Footer() {
 
@@ -26,15 +27,18 @@ function Footer() {
                         <Box display="flex" alignItems="center" justifyContent="center">
                             <a href="https://www.facebook.com/banco_profissionaisnegros" target="_blank"
                                 rel="noopener noreferrer">
-                                <FacebookIcon className='redes' />
+                                <FacebookRounded className='redes' />
                             </a>
                             <a href="https://www.instagram.com/banco_profissionaisnegros/" target="_blank"
                                 rel="noopener noreferrer">
-                                <InstagramIcon className='redes' />
+                                <Instagram className='redes' />
                             </a>
                             <a href="https://www.linkedin.com/company/banco_profissionaisnegros/" target="_blank"
                                 rel="noopener noreferrer">
-                                <LinkedInIcon className='redes' />
+                                <LinkedIn className='redes' />
+                            </a>
+                            <a href="https://github.com/Lidianeangelo/Blog_Pessoal" target="_blank">
+                                <GitHub style={{ fontSize: 60, color: 'white' }} />
                             </a>
                         </Box>
                     </Box>
@@ -53,13 +57,14 @@ noreferrer">
                     </Box>
                 </Grid>
             </Grid>
+        </Grid>
     }
 
-            return (
-            <>
-                {footerComponent}
-            </>
-            )
+    return (
+        <>
+            {footerComponent}
+        </>
+    )
 }
 
-            export default Footer;
+export default Footer;
