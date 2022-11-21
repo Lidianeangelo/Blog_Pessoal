@@ -54,6 +54,11 @@ function Navbar() {
                 <Typography> Cadastrar Tema </Typography>
               </Box>
             </Link>
+            <Link to="/Contato" className="text-decorator-none">
+              <Box mx={1} style={{ cursor: 'pointer' }}>
+                <Typography> Contato </Typography>
+              </Box>
+            </Link>
           </Box>
         </Grid>
 
